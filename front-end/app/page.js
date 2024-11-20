@@ -5,3 +5,4 @@ export default async function Home() {
   return <Initial res={res} />;
 }
 // 1. Vercel back-end point was not matched . So error is fixed .
+// 2. In vercel , env was given as string .
