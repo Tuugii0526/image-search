@@ -1,3 +1,11 @@
-export const isGif=(url)=>{
- return url.match(/\.(jpg|jpeg|png|gif|webp|svg|bmp|tiff|ico)$/i)[1] ==='gif'
-}
+export const isGif = (url) => {
+  try {
+    const match = url.match(/\.(jpg|jpeg|png|gif|webp|svg|bmp|tiff|ico)$/i);
+    if (match[1] === "gif") {
+      return true;
+    }
+    return false;
+  } catch (error) {
+    return false;
+  }
+};
