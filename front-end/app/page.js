@@ -6,3 +6,4 @@ export default async function Home() {
 }
 // 1. Vercel back-end point was not matched . So error is fixed .
 // 2. In vercel , env was given as string .
+// 3. Backend url should be string
