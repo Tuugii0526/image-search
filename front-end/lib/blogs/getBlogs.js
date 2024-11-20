@@ -8,6 +8,7 @@ export async function getBlogs() {
     const noGifBlogs = blogs.filter(
       ({ cover_image }) => cover_image && !isGif(cover_image)
     );
+
     const blurImagePromises = noGifBlogs.map(({ cover_image }) =>
       getBase64ImageUrl(cover_image)
     );
