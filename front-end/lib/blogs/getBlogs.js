@@ -3,12 +3,11 @@ import { isGif } from "../blurUrl/isGif";
 
 export async function getBlogs() {
   try {
-    const res = await fetch(`${process.env.BACKEND_URL}?per_page=100&top=10`);
+    const res = await fetch(`${process.env.BACKEND_URL}?per_page=100`);
     const blogs = await res.json();
     const noGifBlogs = blogs.filter(
       ({ cover_image }) => cover_image && !isGif(cover_image)
     );
-
     const blurImagePromises = noGifBlogs.map(({ cover_image }) =>
       getBase64ImageUrl(cover_image)
     );
@@ -21,6 +20,7 @@ export async function getBlogs() {
     const noGifYesBlurDataUrl = noGifBlogs.filter(
       ({ blurDataUrl }) => blurDataUrl
     );
+
     return {
       success: true,
       blogs: noGifYesBlurDataUrl,
